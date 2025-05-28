@@ -9,7 +9,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/', schoolRoutes);
 
-// 🔍 Check MySQL connection on startup
+app.get('/', (req, res) => {
+  res.send('School Management API is running!');
+});
+
 const testDBConnection = async () => {
   try {
     const connection = await db.getConnection();
